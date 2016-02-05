@@ -35,3 +35,4 @@ labeled_data<-select(labeled_data, -activity)
 # Create 2nd data set for the average of each variable for each activity and each subject.
 temp<- group_by(labeled_data,subject_id, activity_label)
 subject_activity_mean<-data.frame(summarise_each(temp, funs(mean)))
+write.table(subject_activity_mean, "subject_activity_mean.txt", row.name=FALSE)
